@@ -111,35 +111,30 @@ with DAG(
     extract_ehr_task = PythonOperator(
         task_id='extract_synthetic_ehr_data',
         python_callable=extract_synthetic_ehr_data,
-        provide_context=True,
     )
 
     # Task 2: Anonymize data
     anonymize_task = PythonOperator(
         task_id='anonymize_data',
         python_callable=anonymize_data,
-        provide_context=True,
     )
 
     # Task 3: Perform data quality checks
     quality_check_task = PythonOperator(
         task_id='perform_data_quality_checks',
         python_callable=perform_data_quality_checks,
-        provide_context=True,
     )
 
     # Task 4: Aggregate data
     aggregate_task = PythonOperator(
         task_id='aggregate_data',
         python_callable=aggregate_data,
-        provide_context=True,
     )
 
     # Task 5: Generate natural language reports
     report_task = PythonOperator(
         task_id='generate_natural_language_report',
         python_callable=generate_natural_language_report,
-        provide_context=True,
     )
 
     # Define task dependencies (linear pipeline)
