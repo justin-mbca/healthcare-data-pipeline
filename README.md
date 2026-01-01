@@ -14,10 +14,11 @@ This project demonstrates a modern healthcare data platform, inspired by the Med
 
 ```mermaid
 flowchart TD
-    A[Sample EHR JSON] --> B[ETL Pipeline (Python)]
+    A[Sample EHR JSON] --> B[ETL Pipeline]
     B --> C[SQLite DB]
     C --> D[FastAPI Data API]
-    D -->|/patients| E[User/Consumer]
+    D --> E[User/Consumer]
+    D -.->|/patients| E
 ```
 
 ## Project Structure
