@@ -1,7 +1,7 @@
 
 # Healthcare Data Platform MVP
 
-This project demonstrates a modern healthcare data platform, inspired by the Medical Data Specialist role at Boston Scientific. It covers:
+This project demonstrates a modern healthcare data platform. It covers:
 - ETL pipeline development (Python, Spark)
 - Data modeling (relational and NoSQL, e.g., PostgreSQL, MongoDB)
 - FHIR/HL7 ingestion and integration
