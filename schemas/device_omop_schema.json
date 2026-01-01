@@ -1,0 +1,8 @@
+{
+  "table": "device_exposure",
+  "fields": [
+    {"name": "device_id", "type": "string"},
+    {"name": "person_id", "type": "integer"},
+    {"name": "exposure_date", "type": "date"}
+  ]
+}

@@ -1,0 +1,5 @@
+[
+  {"id": "1", "name": "Alice Smith", "birth_date": "1980-01-01"},
+  {"id": "2", "name": "Bob Jones", "birth_date": "1975-05-23"},
+  {"id": "3", "name": "Carol White", "birth_date": "1990-12-12"}
+]
