@@ -89,3 +89,68 @@ sequenceDiagram
 
 ## About
 This scaffold is designed for demonstration and interview purposes, reflecting the skills and tools required for a Medical Data Specialist in a regulated healthcare environment.
+
+## Airflow 3.x: Local Project Setup & Usage
+
+This project uses a fully project-local Airflow 3.x environment. Follow these steps to install, configure, and run Airflow with only your project DAGs:
+
+### 1. Create and Activate a Virtual Environment
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+```
+
+### 2. Install Airflow
+```bash
+pip install "apache-airflow==3.1.5"
+```
+
+### 3. Set Up Airflow Home and Disable Example DAGs
+Always set these environment variables before running any Airflow command:
+```bash
+export AIRFLOW_HOME="$PWD/airflow"
+export AIRFLOW__CORE__LOAD_EXAMPLES=False
+```
+
+### 4. Initialize the Airflow Database
+```bash
+airflow db migrate
+```
+
+### 5. Create an Admin User (if needed)
+```bash
+airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password <your-password>
+```
+
+### 6. Start Airflow Services
+**In two separate terminals:**
+
+**Terminal 1:**
+```bash
+source .venv/bin/activate
+export AIRFLOW_HOME="$PWD/airflow"
+export AIRFLOW__CORE__LOAD_EXAMPLES=False
+airflow api-server --port 8080
+```
+
+**Terminal 2:**
+```bash
+source .venv/bin/activate
+export AIRFLOW_HOME="$PWD/airflow"
+export AIRFLOW__CORE__LOAD_EXAMPLES=False
+airflow scheduler
+```
+
+### 7. Access the Airflow UI
+Go to: http://localhost:8080
+
+You should see only your project DAGs (from `airflow/dags`). No example DAGs will be loaded.
+
+### 8. Troubleshooting
+- If example DAGs still appear, stop all Airflow processes, ensure the environment variable is set, and restart both the API server and scheduler.
+- To reset the Airflow database (removes all DAG history):
+    ```bash
+    airflow db reset
+    ```
+
+---
